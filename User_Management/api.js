@@ -4,7 +4,6 @@ const path = require("path");
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
 const { v4: uuidv4 } = require("uuid");
-const winston = require("winston");
 
 app.use(express.json());
 
@@ -12,15 +11,6 @@ const dbPath = path.join(__dirname, "database.sqlite");
 
 let db = null;
 
-
-// Setup Winston logger
-const logger = winston.createLogger({
-  level: "info",
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({ filename: "app.log" }),
-  ],
-});
 
 // Initialize DB and start server
 const initializeDBAndServer = async () => {
@@ -62,10 +52,9 @@ const initializeDBAndServer = async () => {
 
     app.listen(3000, () => {
       console.log("Server running on port 3000");
-      logger.info("Server started on port 3000");
     });
   } catch (e) {
-    logger.error(e.message);
+    console.log(e.message);
     process.exit(1);
   }
 };
