@@ -1,0 +1,44 @@
+
+POST http://localhost:3000/create_user
+Content-Type: application/json
+
+{
+  "full_name": "Alice Johnson",
+  "mob_num": "9876543210",
+  "pan_num": "ABCDE1234F",
+  "manager_id": "11111111-1111-1111-1111-111111111111"
+}
+###
+POST http://localhost:3000/get_users
+Content-Type: application/json
+
+{
+    "user_id": "52851b11-0105-45b9-9464-67add5a0c965"
+}
+
+###
+
+POST http://localhost:3000/update_user
+Content-Type: application/json
+
+
+{
+  "user_ids": ["a12b3c4d-5678-9def-ghij-1234567890ab"],
+  "update_data": {
+    "full_name": "Alice Johnson Updated",
+    "mob_num": "9876500000",
+    "pan_num": "ABCDE0000Z"
+  }
+}
+
+
+###
+POST http://localhost:3000/delete_user 
+Content-Type: application/json
+
+{
+    "user_id": "a12b3c4d-5678-9def-ghij-1234567890ab",
+    "mob_num": "9876500000"
+}
+
+
