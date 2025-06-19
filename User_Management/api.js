@@ -50,9 +50,11 @@ const initializeDBAndServer = async () => {
         ('22222222-2222-2222-2222-222222222222', 1);
     `);
 
-    app.listen(3000, () => {
-      console.log("Server running on port 3000");
+   const PORT = process.env.PORT || 4000;
+   app.listen(PORT, () => {
+      console.log(`✅ Server running on port ${PORT}`);
     });
+
   } catch (e) {
     console.log(e.message);
     process.exit(1);
